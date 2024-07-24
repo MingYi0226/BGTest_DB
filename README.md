@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 This repository represents database schema used for ByteGenie test project.
+## Create additional columns for event_industry and email
+	1. I used LLM model(llama-3-sqlcoder-8b) to extract event industry from event_description and created event.event_industry.
+	2. Created people.email column from people.email_template column.
 
+	You can find above functions in utility.py
 ## Convert CSV files to Database(SQLLite)
 1. Create a Database
 2. Import CSV files into tables
@@ -23,8 +27,7 @@ This repository represents database schema used for ByteGenie test project.
 	"homepage_base_url"	TEXT,
 	"duration_in_current_job"	TEXT,
 	"duration_in_current_company"	TEXT,
-	"id"	INTEGER,
-	PRIMARY KEY("id")
+	"email" TEXT
     )
 
 ### event
@@ -37,8 +40,7 @@ This repository represents database schema used for ByteGenie test project.
 	"event_country"	TEXT,
 	"event_description"	TEXT,
 	"event_url"	TEXT,
-	"id"	INTEGER,
-	PRIMARY KEY("id")
+	"event_industry" TEXT
 
 ### company
     CREATE TABLE IF NOT EXISTS "company" (
@@ -64,7 +66,7 @@ This repository represents database schema used for ByteGenie test project.
 )
 
 ## Challenges you faced in working with this data
-No special challenges, I just used raw csv files
+While creating additional columns, I need to consider exceptions that column data is not unavailable.
 
 ## Things to improve database desgin:
     - 
